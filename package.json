@@ -1,6 +1,6 @@
 {
   "name": "karma-hydro",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Karma plugin - adapter for Hydro",
   "keywords": [
     "karma-plugin",
