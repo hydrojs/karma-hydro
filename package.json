@@ -2,6 +2,11 @@
   "name": "karma-hydro",
   "version": "0.0.0",
   "description": "Karma plugin - adapter for Hydro",
+  "keywords": [
+    "karma-plugin",
+    "karma-adapter",
+    "hydro"
+  ],
   "main": "index.js",
   "homepage": "https://github.com/hydrojs/karma-hydro",
   "repository": {
