@@ -39,6 +39,7 @@ function init(files, config) {
   if (config && config.plugins) {
     config.clientPlugins = [];
     config.plugins.forEach(function(plugin) {
+      // TODO: this hack is nice but we need to improve it
       config.clientPlugins.push(plugin);
       files.unshift(
         createPattern(dirname(resolve(plugin)) + '/' + plugin + '.js')
