@@ -88,10 +88,9 @@
    * Configurations.
    */
 
-  var config = (root.__karma__.config || {}).hydro || {};
-  config.clientPlugins = config.clientPlugins || [];
-  config.plugins = [];
-  config.formatter = new KarmaFormatter(root.__karma__);
+  var config = (global.__karma__.config || {}).hydro || {};
+  config.formatter = new KarmaFormatter(global.__karma__);
+  hydro.set(config);
 
   /**
    * Populate `plugins`.

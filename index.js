@@ -26,7 +26,6 @@ function createPattern(pattern) {
  * Initialize hydro.
  *
  * @param {Array} files
- * @param {Array} hydro plugins
  * @api public
  */
 
@@ -36,16 +35,6 @@ function init(files, config) {
   files.unshift(createPattern(__dirname + '/adapter.js'));
   files.unshift(createPattern(hydroJs));
 
-  if (config && config.plugins) {
-    config.clientPlugins = [];
-    config.plugins.forEach(function(plugin) {
-      // TODO: this hack is nice but we need to improve it
-      config.clientPlugins.push(plugin);
-      files.unshift(
-        createPattern(dirname(resolve(plugin)) + '/' + plugin + '.js')
-      );
-    });
-  }
 }
 
 /**
