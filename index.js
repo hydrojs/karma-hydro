@@ -23,28 +23,25 @@ function createPattern(pattern) {
 }
 
 /**
- * Initialize hydro.
+ * Insert hydro into the loaded files.
  *
  * @param {Array} files
  * @api public
  */
 
-function init(files, config) {
-  var hydroJs = dirname(dirname(resolve('hydro'))) + '/hydro.js';
+function init(config) {
+  var hydroConfig = config.hydro || {};
+  var hydroJs = hydroConfig.path || dirname(dirname(resolve('hydro'))) + '/hydro.js';
 
-  files.unshift(createPattern(__dirname + '/adapter.js'));
-  files.unshift(createPattern(hydroJs));
-
+  config.files.unshift(createPattern(__dirname + '/adapter.js'));
+  config.files.unshift(createPattern(hydroJs));
 }
 
 /**
  * Inject.
  */
 
-init.$inject = [
-  'config.files',
-  'config.client.hydro'
-];
+init.$inject = ['config'];
 
 /**
  * Primary export.
