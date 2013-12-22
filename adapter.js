@@ -4,7 +4,7 @@
    * Root.
    */
 
-  var root = this;
+  var global = this;
 
   /**
    * Format error.
@@ -48,7 +48,7 @@
     });
 
     hydro.on('post:all', function() {
-      tc.complete({ coverage: root.__coverage__ });
+      tc.complete({ coverage: global.__coverage__ });
     });
 
     hydro.on('post:test', function(test) {
@@ -93,27 +93,22 @@
   hydro.set(config);
 
   /**
-   * Populate `plugins`.
+   * Check for instantaneous setup.
    */
 
-  for (var i = 0, len = config.clientPlugins.length, plugin; i < len; i++) {
-    plugin = config.clientPlugins[i];
-    if (!root[plugin]) throw new Error("Couldn't find plugin: " + plugin);
-    config.plugins.push(root[plugin]);
-  }
+  if (config.setup === true) hydro.setup();
 
   /**
-   * Bootstrap.
+   * Export hydro.
    */
 
-  hydro.set(config);
-  hydro.setup();
+  global.hydro = hydro;
 
   /**
    * Tell karma how to start the tests.
    */
 
-  root.__karma__.start = function() {
+  global.__karma__.start = function() {
     hydro.exec();
   };
 
