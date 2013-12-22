@@ -23,9 +23,19 @@ module.exports = function(config) {
       'test/*.js'
     ],
 
+    hydro: { path: 'custom-path-to-hydro.js' }, // optional
+
     client: {
       hydro: {
+        // hydro & hydro plugins options
+
         plugins: ['hydro-bdd' /* ... */]
+        timeout: 2000,
+        // ...
+
+        // karma specific options
+
+        setup: true // instantaneous setup, optional, default: false
       }
     }
   });
