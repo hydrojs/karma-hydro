@@ -42,8 +42,9 @@ module.exports = function(config) {
 };
 ```
 
-In most of the cases you might want to defer the hydro setup, because you karma
-to include your plugins as script tags, require plugins manually or what have you.
+In most of the cases you might want to defer the hydro setup, because you want karma
+to include your plugins, prepare the environment manually or what have you.
+
 Hydro will set itself up with karma, but it won't call the `setup` method so you
 can do it yourself later on.
 
