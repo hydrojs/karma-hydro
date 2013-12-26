@@ -96,7 +96,9 @@
    * Check for instantaneous setup.
    */
 
-  if (config.setup === true) hydro.setup();
+  if (config.setup === true) {
+    hydro.setup();
+  }
 
   /**
    * Export hydro.
