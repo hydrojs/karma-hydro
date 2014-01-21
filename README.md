@@ -23,14 +23,17 @@ module.exports = function(config) {
       'test/*.js'
     ],
 
-    hydro: { path: 'custom-path-to-hydro.js' }, // optional
+    hydro: {
+      before: [
+        'build/build.js' // files to be included before hydro
+      ]
+    },
 
     client: {
       hydro: {
         // hydro & hydro plugins options
 
-        plugins: ['hydro-bdd' /* ... */]
-        timeout: 2000,
+        plugins: ['hydro-bdd' /* ... */],
         // ...
 
         // karma specific options
@@ -55,7 +58,7 @@ Here is an example of how you can accomplish this:
 
 module.exports = function(config) {
   config.set({
-    frameworks: ['hydro'],
+    frameworks: [ 'hydro' ],
 
     files: [
       'hydro-bdd',

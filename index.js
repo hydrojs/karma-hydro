@@ -2,8 +2,8 @@
  * Core dependencies.
  */
 
-var dirname = require('path').dirname;
-var resolve = require.resolve;
+var path = require('path');
+var dirname = path.dirname;
 
 /**
  * Create path.
@@ -31,10 +31,15 @@ function createPattern(pattern) {
 
 function init(config) {
   var hydroConfig = config.hydro || {};
-  var hydroJs = hydroConfig.path || dirname(dirname(resolve('hydro'))) + '/hydro.js';
+  var hydroJs = hydroConfig.path || dirname(dirname(require.resolve('hydro'))) + '/hydro.js';
+  var before = hydroConfig.before || [];
 
   config.files.unshift(createPattern(__dirname + '/adapter.js'));
   config.files.unshift(createPattern(hydroJs));
+
+  before.reverse().forEach(function(file) {
+    config.files.unshift(createPattern(path.resolve(file)));
+  });
 }
 
 /**
