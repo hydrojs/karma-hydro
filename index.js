@@ -31,7 +31,7 @@ function createPattern(pattern) {
 
 function init(config) {
   var hydroConfig = config.hydro || {};
-  var hydroJs = hydroConfig.path || dirname(dirname(require.resolve('hydro'))) + '/hydro.js';
+  var hydroJs = hydroConfig.path || dirname(dirname(require.resolve('hydro'))) + '/dist/hydro.js';
   var before = hydroConfig.before || [];
 
   config.files.unshift(createPattern(__dirname + '/adapter.js'));
