@@ -46,12 +46,12 @@ function init(config) {
  * Inject.
  */
 
-init.$inject = ['config'];
+init.$inject = [ 'config' ];
 
 /**
  * Primary export.
  */
 
 module.exports = {
-  'framework:hydro': ['factory', init]
+  'framework:hydro': [ 'factory', init ]
 };
