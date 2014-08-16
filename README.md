@@ -1,5 +1,9 @@
 # karma-hydro
 
+## WIP
+
+Work in progress. Please do not use yet.
+
 ## Synopsis
 
 Karma plugin for [hydro](https://github.com/hydrojs/hydro).
